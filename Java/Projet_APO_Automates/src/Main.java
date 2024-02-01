@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Main {
     public Main() {
     }
@@ -8,14 +10,22 @@ public class Main {
         window.setVisible(true);
     */
 
-        int TailleAutomate1D = 10;
-        Automate1D automate1D = new Automate1D(TailleAutomate1D);
-        int NombreEtapes = 2;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Entrez la configuration initiale de l'automate (ex: 0011001011):");
+        String initialState = scanner.nextLine();
 
-        for(int etapes = 0; etapes < NombreEtapes; ++etapes) {
-            automate1D.AfficherEtat();
-            automate1D.CalculProchain();
+        Automate1D automate = new Automate1D(initialState);
+        System.out.println("Configuration initiale:");
+        automate.AfficherEtat();
+
+        System.out.println("Combien d'itérations voulez-vous exécuter ?");
+        int iterations = scanner.nextInt();
+        for (int i = 0; i < iterations; i++) {
+            automate.CalculProchain();
+            System.out.println("État après itération " + (i + 1) + " :");
+            automate.AfficherEtat();
         }
 
+        scanner.close();
     }
 }
