@@ -1,11 +1,21 @@
+import java.util.Arrays;
+
 public class Automate1D {
     private Cellule[] cellules;
-    private int[] regle = {1, 1, 1, 1, 1, 1, 1, 0};
+    private int[] regle;
 
-    public Automate1D(String initialState) {
+    public Automate1D(String initialState, int ruleNumber) {
+        this.regle = new int[8];
         this.cellules = new Cellule[initialState.length()];
         for (int i = 0; i < initialState.length(); i++) {
             this.cellules[i] = new Cellule(Character.getNumericValue(initialState.charAt(i)));
+        }
+
+        String binaryString = Integer.toBinaryString(ruleNumber);
+        binaryString = String.format("%8s", binaryString).replace(' ', '0');
+
+        for (int i = 0; i < 8; i++) {
+            regle[i] = binaryString.charAt(i) == '1' ? 1 : 0;
         }
     }
 
