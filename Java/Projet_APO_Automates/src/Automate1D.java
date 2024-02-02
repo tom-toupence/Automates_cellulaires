@@ -1,8 +1,16 @@
 import java.util.Arrays;
 
-public class Automate1D {
+public class Automate1D{
     private Cellule[] cellules;
     private int[] regle;
+    private int rule;
+    private String initialState;
+    private int iterations;
+
+    //Constructeur par défaut
+    public Automate1D(){
+        this.regle = new int[8];
+    }
 
     public Automate1D(String initialState, int ruleNumber) {
         this.regle = new int[8];
@@ -34,10 +42,42 @@ public class Automate1D {
         cellules = nouvelleGeneration;
     }
 
-    public void AfficherEtat() {
+    public String AfficherEtat() {
+        StringBuilder sb = new StringBuilder();
         for (Cellule cellule : cellules) {
-            System.out.print(cellule.getValue());
+            sb.append(cellule.getValue() == 1 ? "1" : "0");
         }
-        System.out.println();
+        return sb.toString();
     }
+
+    //Getteurs & Setteurs
+
+    public Cellule[] getCellules() {
+        return cellules;
+    }
+
+    public int getRule(){
+        return this.rule;
+    }
+
+    public void setRule(int rule){
+        this.rule = rule;
+    }
+
+    public String getInitialState(){
+        return this.initialState;
+    }
+
+    public void setInitialState(String initialState){
+        this.initialState = initialState;
+    }
+
+    public int getIterations(){
+        return this.iterations;
+    }
+
+    public void setIterations(int iterations){
+        this.iterations = iterations;
+    }
+
 }

@@ -2,10 +2,15 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-    /*
-        WindowMain window = new WindowMain();
+
+        Automate1D modele = new Automate1D();
+        WindowMain window = new WindowMain(modele);
         window.setVisible(true);
-    */
+
+
+        /*
+
+        - ANCIEN SYSTEME DANS LE TERMINAL -
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Quelle règle voulez vous utiliser ? (0-256):");
@@ -26,5 +31,6 @@ public class Main {
         }
 
         scanner.close();
+         */
     }
 }
