@@ -1,3 +1,8 @@
+package window;
+
+import metier.Automate1D;
+import util.Automate1D_info;
+
 import javax.swing.*;
 import java.awt.*;
 

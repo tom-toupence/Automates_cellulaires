@@ -1,4 +1,5 @@
-import java.util.Scanner;
+import metier.Automate1D;
+import window.WindowMain;
 
 public class Main {
     public static void main(String[] args) {
@@ -18,7 +19,7 @@ public class Main {
         System.out.println("Entrez la configuration initiale de l'automate (ex: 0011001011):");
         String initialState = scanner.nextLine();
 
-        Automate1D automate = new Automate1D(initialState, rule);
+        metier.Automate1D automate = new metier.Automate1D(initialState, rule);
         System.out.println("Configuration initiale:");
         automate.AfficherEtat();
 

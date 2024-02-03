@@ -1,3 +1,9 @@
+package window;
+
+import metier.Automate1D;
+import util.ColorAutomate1D;
+import window.WindowMain;
+
 import javax.swing.*;
 import java.awt.*;
 

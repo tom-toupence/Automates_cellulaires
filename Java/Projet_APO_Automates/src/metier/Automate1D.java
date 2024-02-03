@@ -1,18 +1,20 @@
-import java.util.Arrays;
+package metier;
 
-public class Automate1D{
+public class Automate1D extends AutomateCellulaire1D {
     private Cellule[] cellules;
     private int[] regle;
-    private int rule;
     private String initialState;
     private int iterations;
 
     //Constructeur par défaut
-    public Automate1D(){
+    public Automate1D() {
+        super(0, 0); // Initialise avec des valeurs par défaut, à ajuster selon les besoins
         this.regle = new int[8];
     }
 
     public Automate1D(String initialState, int ruleNumber) {
+        super(ruleNumber, initialState.length());
+        this.initialState = initialState;
         this.regle = new int[8];
         this.cellules = new Cellule[initialState.length()];
         for (int i = 0; i < initialState.length(); i++) {
@@ -25,8 +27,10 @@ public class Automate1D{
         for (int i = 0; i < 8; i++) {
             regle[i] = binaryString.charAt(i) == '1' ? 1 : 0;
         }
+        this.rule = ruleNumber; // Assurez-vous que la propriété 'rule' est correctement initialisée
     }
 
+    @Override
     public void CalculProchain() {
         Cellule[] nouvelleGeneration = new Cellule[cellules.length];
         for (int i = 0; i < cellules.length; i++) {
@@ -42,7 +46,7 @@ public class Automate1D{
         cellules = nouvelleGeneration;
     }
 
-    public String AfficherEtat() {
+    public String afficherEtat() {
         StringBuilder sb = new StringBuilder();
         for (Cellule cellule : cellules) {
             sb.append(cellule.getValue() == 1 ? "1" : "0");
@@ -50,34 +54,37 @@ public class Automate1D{
         return sb.toString();
     }
 
-    //Getteurs & Setteurs
+    // Getteurs & Setteurs (ajustez si nécessaire pour correspondre à la nouvelle structure)
 
     public Cellule[] getCellules() {
         return cellules;
     }
 
-    public int getRule(){
-        return this.rule;
+    public void setCellules(Cellule[] cellules) {
+        this.cellules = cellules;
     }
 
-    public void setRule(int rule){
-        this.rule = rule;
+    public int[] getRegle() {
+        return regle;
     }
 
-    public String getInitialState(){
-        return this.initialState;
+    public void setRegle(int[] regle) {
+        this.regle = regle;
     }
 
-    public void setInitialState(String initialState){
+    public String getInitialState() {
+        return initialState;
+    }
+
+    public void setInitialState(String initialState) {
         this.initialState = initialState;
     }
 
-    public int getIterations(){
-        return this.iterations;
+    public int getIterations() {
+        return iterations;
     }
 
-    public void setIterations(int iterations){
+    public void setIterations(int iterations) {
         this.iterations = iterations;
     }
-
 }

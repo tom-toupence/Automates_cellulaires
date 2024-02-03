@@ -1,7 +1,12 @@
-import javax.swing.*;
+package util;
+
+import metier.Automate1D;
+import window.WindowAutomate1D;
+import window.WindowAutomate1DInfo;
+import window.WindowMain;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.*;
 
 public class Automate1D_results implements ActionListener{
     WindowAutomate1DInfo window;

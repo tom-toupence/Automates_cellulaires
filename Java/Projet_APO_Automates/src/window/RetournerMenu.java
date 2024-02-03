@@ -1,13 +1,19 @@
+package window;
+
+import metier.Automate1D;
+import window.WindowAutomate1D;
+import window.WindowMain;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Parametres implements ActionListener {
+public class RetournerMenu implements ActionListener {
 
     Automate1D modele;
-    WindowAutomate1DInfo w1;
+    WindowMain w1;
     WindowAutomate1D w2;
 
-    public Parametres(Automate1D modele, WindowAutomate1DInfo w1, WindowAutomate1D w2) {
+    public RetournerMenu(Automate1D modele, WindowMain w1, WindowAutomate1D w2) {
         this.modele=modele;
         this.w1=w1;
         this.w2=w2;

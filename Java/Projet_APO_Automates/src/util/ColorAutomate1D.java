@@ -1,3 +1,7 @@
+package util;
+
+import metier.Cellule;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;

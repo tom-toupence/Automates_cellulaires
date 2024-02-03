@@ -1,3 +1,5 @@
+package metier;
+
 public class Cellule {
     private int value;
 
