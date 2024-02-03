@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 
 public class WindowAutomate1DInfo extends JFrame {
     private int HAUTEUR=150;
@@ -44,8 +45,8 @@ public class WindowAutomate1DInfo extends JFrame {
                 modele.setRule(Integer.parseInt(ruleField.getText()));
                 modele.setInitialState(initialStateField.getText());
                 modele.setIterations(Integer.parseInt(iterationsField.getText()));
-
-                new WindowAutomate1D(modele, this);
+                Automate1D_results resultsListener = new Automate1D_results(this, window, modele);
+                resultsListener.actionPerformed(new ActionEvent(e.getSource(), ActionEvent.ACTION_PERFORMED, null));
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(this, "Veuillez entrer des nombres valides pour la règle et les itérations.", "Erreur de saisie", JOptionPane.ERROR_MESSAGE);
             }
