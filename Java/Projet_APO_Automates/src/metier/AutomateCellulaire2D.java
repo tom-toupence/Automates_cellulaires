@@ -5,8 +5,8 @@ public class AutomateCellulaire2D extends AutomateCellulaire {
     protected int[][] grid; // Grille représentant l'état des cellules
     protected int height;
 
-    public AutomateCellulaire2D(int rule, int length, int height) {
-        super(rule, length);
+    public AutomateCellulaire2D(int length, int height) {
+        super(length);
         this.height = height;
         this.grid = new int[height][length];
     }

@@ -1,17 +1,20 @@
 package window;
 
 import metier.Automate1D;
+import metier.FeuDeForet;
 import util.Automate1D_info;
+import util.FeuDeForetInfo;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class WindowMain extends JFrame {
     private final int height = 450;
     private final int width = 450;
     Automate1D modele;
 
-    public WindowMain(Automate1D modele) {
+    public WindowMain(Automate1D modele, FeuDeForet modeleFeuDeForet) {
         this.modele=modele;
         this.setTitle("Automates - Menu");
         this.setSize(450, 450);
@@ -35,5 +38,6 @@ public class WindowMain extends JFrame {
 
         //ajouter des actions aux boutons
         button_1.addActionListener(new Automate1D_info(this, modele));
+        button_2.addActionListener(new FeuDeForetInfo(this,new FeuDeForet()));
     }
 }

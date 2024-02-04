@@ -5,34 +5,36 @@ import window.WindowMain;
 public class Main {
     public static void main(String[] args) {
 
-        /*Automate1D modele = new Automate1D();
-        WindowMain window = new WindowMain(modele);
-        window.setVisible(true);*/
 
-        int length = 10; // Largeur de la grille
+        Automate1D modele = new Automate1D();
+        FeuDeForet modeleFeuDeForet = new FeuDeForet();
+        WindowMain window = new WindowMain(modele,modeleFeuDeForet);
+        window.setVisible(true);
+
+
+/*
+        int length = 20; // Largeur de la grille
         int height = 10; // Hauteur de la grille
-        double densiteForet = 0.6; // Densité de la forêt
-        double probaIgnition = 0.3; // Probabilité d'ignition d'une cellule forêt
-        double probaSpontaneousFire = 0.05; // Probabilité qu'une cellule forêt s'enflamme spontanément
+        double densiteForet = 0.9; // Densité de forêt (60% des cellules sont des arbres)
+        double probaSpontaneousFire = 0.5; // Probabilité d'enflamment spontané
+        double ventDirection = 90; // Direction du vent (Est)
+        double ventForce = 0.05; // Force du vent
+        int initialFeux = 3; // Nombre initial de cellules en feu
 
         // Création de l'instance de FeuDeForet
-        FeuDeForet feuDeForet = new FeuDeForet(length, height, densiteForet, probaIgnition, probaSpontaneousFire);
+        FeuDeForet simulation = new FeuDeForet(length, height, densiteForet,probaSpontaneousFire, ventDirection, ventForce, initialFeux);
 
-        // Simulation sur plusieurs itérations
-        for (int i = 0; i < 10; i++) {
-            System.out.println("Itération " + (i + 1));
-            feuDeForet.CalculProchain();
-            // Affichage de l'état actuel de la forêt
-            // Vous devez implémenter une méthode d'affichage dans FeuDeForet pour voir le résultat
-            feuDeForet.afficherForet();
-            // Pause pour visualisation
-            try {
-                Thread.sleep(1000); // 1000 millisecondes = 1 seconde
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+        // Affichage de l'état initial de la forêt
+        System.out.println("État initial de la forêt :");
+        simulation.afficherForet();
+
+        // Exécution de quelques cycles de simulation
+        int nombreDeCycles = 5; // Nombre de cycles de simulation à exécuter
+        for (int i = 0; i < nombreDeCycles; i++) {
+            simulation.CalculProchain(); // Calcul du prochain état
+            System.out.println("État de la forêt après le cycle " + (i + 1) + " :");
+            simulation.afficherForet(); // Affichage de l'état actuel de la forêt
+        }*/
 
         /*
 
@@ -58,5 +60,6 @@ public class Main {
 
         scanner.close();
          */
+    }
 }
 

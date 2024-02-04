@@ -1,22 +1,16 @@
 package metier;
 
 public abstract class AutomateCellulaire {
-    protected int rule;
+
     protected int length;
 
-    public AutomateCellulaire(int rule, int length) {
-        this.rule = rule;
+    public AutomateCellulaire( int length) {
+
         this.length = length;
     }
 
     // Getters et setters
-    public int getRule() {
-        return rule;
-    }
 
-    public void setRule(int rule) {
-        this.rule = rule;
-    }
 
     public int getLength() {
         return length;
