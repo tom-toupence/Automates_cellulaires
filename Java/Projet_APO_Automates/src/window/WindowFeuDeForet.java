@@ -9,21 +9,54 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Fenêtre de visualisation pour la simulation d'un feu de forêt.
+ * <p>
+ * Cette classe fournit une interface graphique pour visualiser la progression d'une simulation de feu de forêt,
+ * avec des fonctionnalités pour démarrer la simulation, la mettre en pause, et ajuster divers paramètres via une interface dédiée.
+ * Elle intègre également des boutons pour retourner au menu principal et ajuster les paramètres de la simulation.
+ * </p>
+ */
 public class WindowFeuDeForet extends JFrame {
 
-    private int HAUTEUR = 500;
-    private int LARGEUR = 500;
+    /**
+     * Référence à la fenêtre d'informations et de paramètres pour la simulation du feu de forêt.
+     */
     private WindowFeuDeForetInfo window;
+    /**
+     * Référence à la fenêtre principale de l'application.
+     */
     private WindowMain window0;
-    private FeuDeForet modele;
+    /**
+     * Timer utilisé pour actualiser la visualisation de la simulation à intervalles réguliers.
+     */
     private Timer timer;
-    private int currentIteration;
 
+    private int currentIteration;
+    /**
+     * Modèle de simulation de feu de forêt utilisé pour la visualisation.
+     */
     private FeuDeForet feuDeForet;
+    /**
+     * Composant graphique personnalisé pour la visualisation de l'automate cellulaire en deux dimensions.
+     */
     private ColorAutomate2D automatePanel;
+    /**
+     * Largeur par défaut de la fenêtre de visualisation.
+     */
     private int largeur;
+    /**
+     * Hauteur par défaut de la fenêtre de visualisation.
+     */
     private int hauteur;
 
+    /**
+     * Constructeur initialisant la fenêtre de visualisation avec les composants nécessaires.
+     *
+     * @param modele Le modèle de simulation de feu de forêt.
+     * @param window La fenêtre d'informations pour le feu de forêt.
+     * @param window0 La fenêtre principale de l'application.
+     */
     public WindowFeuDeForet(FeuDeForet modele, WindowFeuDeForetInfo window, WindowMain window0) {
 
 

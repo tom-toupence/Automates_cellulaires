@@ -2,18 +2,65 @@ package metier;
 
 import java.util.Random;
 
+/**
+ * Classe simulant un feu de forêt dans un automate cellulaire 2D.
+ * <p>
+ * Cette simulation utilise un automate cellulaire pour modéliser le comportement d'un feu se propageant dans une forêt.
+ * Les cellules peuvent représenter un état vide, de forêt, de feu, ou brûlé, avec la propagation du feu influencée par
+ * la densité de la forêt, la probabilité qu'une cellule de forêt s'enflamme, la direction et la force du vent, ainsi que
+ * le nombre initial de feux.
+ * </p>
+ */
 public class FeuDeForet extends AutomateCellulaire2D {
+    /**
+     * Représente une cellule vide.
+     */
     private static final int VIDE = 0;
+    /**
+     * Représente une cellule contenant de la forêt.
+     */
     private static final int FORET = 1;
+    /**
+     * Représente une cellule en feu.
+     */
     private static final int FEU = 2;
+    /**
+     * Représente une cellule brûlée.
+     */
     private static final int BRULE = 3;
 
+    /**
+     * Probabilité qu'une cellule de forêt s'enflamme.
+     */
     private double probaFeu;
+    /**
+     * Direction du vent en degrés.
+     */
     private double ventDirection;
+    /**
+     * Force du vent.
+     */
     private double ventForce;
+    /**
+     * Nombre initial de cellules en feu.
+     */
     private int initialFeux;
+    /**
+     * Densité de la forêt dans l'automate.
+     */
     private double densiteForet;
 
+    /**
+     * Constructeur complet pour initialiser un simulateur de feu de forêt avec des paramètres spécifiques.
+     *
+     * @param length        Largeur de la grille de l'automate.
+     * @param height        Hauteur de la grille de l'automate.
+     * @param densiteForet  Densité de la forêt (probabilité qu'une cellule soit une forêt).
+     * @param probaFeu      Probabilité qu'une cellule de forêt s'enflamme.
+     * @param ventDirection Direction du vent en degrés.
+     * @param ventForce     Force du vent.
+     * @param initialFeux   Nombre initial de cellules en feu.
+     */
     public FeuDeForet(int length, int height, double densiteForet, double probaFeu, double ventDirection, double ventForce, int initialFeux) {
         super(length, height);
         this.probaFeu = probaFeu;
@@ -24,10 +71,19 @@ public class FeuDeForet extends AutomateCellulaire2D {
         initialiserForet(densiteForet, initialFeux);
     }
 
+    /**
+     * Constructeur par défaut pour créer une instance sans configuration initiale.
+     */
     public FeuDeForet() {
         super(0, 0);
     }
 
+    /**
+     * Initialise la grille de l'automate avec une densité de forêt et un nombre initial de feux spécifiés.
+     *
+     * @param densiteForet Densité de la forêt.
+     * @param initialFeux  Nombre initial de cellules en feu.
+     */
     public void initialiserForet(double densiteForet, int initialFeux) {
         Random rand = new Random();
         for (int i = 0; i < getHeight(); i++) {
@@ -45,6 +101,9 @@ public class FeuDeForet extends AutomateCellulaire2D {
         }
     }
 
+    /**
+     * Calcule et met à jour l'état de chaque cellule pour la prochaine génération, selon la logique de propagation du feu.
+     */
     @Override
     public void CalculProchain() {
         int[][] nouvelEtat = new int[getHeight()][getLength()];
@@ -75,6 +134,13 @@ public class FeuDeForet extends AutomateCellulaire2D {
         setGrid(nouvelEtat);
     }
 
+    /**
+     * Calcule l'impact du vent sur la propagation du feu en fonction de sa direction et de sa force.
+     *
+     * @param deltaX Déplacement sur l'axe X par rapport à la cellule courante.
+     * @param deltaY Déplacement sur l'axe Y par rapport à la cellule courante.
+     * @return L'impact du vent sur la probabilité d'enflammement de la cellule.
+     */
     private double calculerImpactDuVent(int deltaX, int deltaY) {
         double rad = Math.toRadians(ventDirection);
         double ventX = Math.cos(rad);
@@ -100,51 +166,109 @@ public class FeuDeForet extends AutomateCellulaire2D {
     }
 
 
-
+    /**
+     * Retourne la probabilité actuelle qu'une cellule de forêt s'enflamme.
+     *
+     * @return La probabilité d'enflammement d'une cellule de forêt.
+     */
     public double getProbaFeu() {
         return probaFeu;
     }
 
+    /**
+     * Définit la probabilité qu'une cellule de forêt s'enflamme.
+     *
+     * @param probaFeu La nouvelle probabilité d'enflammement.
+     */
     public void setProbaFeu(double probaFeu) {
         this.probaFeu = probaFeu;
     }
 
+    /**
+     * Retourne la direction actuelle du vent affectant la propagation du feu.
+     *
+     * @return La direction du vent en degrés.
+     */
     public double getVentDirection() {
         return ventDirection;
     }
 
+    /**
+     * Définit la direction du vent influençant la propagation du feu.
+     *
+     * @param ventDirection La nouvelle direction du vent en degrés.
+     */
     public void setVentDirection(double ventDirection) {
         this.ventDirection = ventDirection;
     }
 
+    /**
+     * Retourne la force actuelle du vent affectant la propagation du feu.
+     *
+     * @return La force du vent.
+     */
     public double getVentForce() {
         return ventForce;
     }
 
+    /**
+     * Définit la force du vent influençant la propagation du feu.
+     *
+     * @param ventForce La nouvelle force du vent.
+     */
     public void setVentForce(double ventForce) {
         this.ventForce = ventForce;
     }
 
+    /**
+     * Retourne le nombre initial de cellules en feu lors de l'initialisation de la simulation.
+     *
+     * @return Le nombre initial de cellules en feu.
+     */
     public int getInitialFeux() {
         return initialFeux;
     }
 
+    /**
+     * Définit le nombre initial de cellules en feu pour démarrer la simulation.
+     *
+     * @param initialFeux Le nouveau nombre initial de cellules en feu.
+     */
     public void setInitialFeux(int initialFeux) {
         this.initialFeux = initialFeux;
     }
 
+    /**
+     * Retourne la densité actuelle de la forêt dans la grille de l'automate.
+     *
+     * @return La densité de la forêt.
+     */
     public double getDensiteForet() {
         return densiteForet;
     }
 
+    /**
+     * Définit la densité de la forêt dans la grille de l'automate.
+     *
+     * @param densiteForet La nouvelle densité de la forêt.
+     */
     public void setDensiteForet(double densiteForet) {
         this.densiteForet = densiteForet;
     }
 
+    /**
+     * Retourne la grille actuelle représentant l'état de chaque cellule dans l'automate.
+     *
+     * @return La grille représentant l'état des cellules.
+     */
     public int[][] getGrid() {
         return grid;
     }
 
+    /**
+     * Affiche l'état actuel de la forêt dans la console, en utilisant des symboles pour représenter
+     * les différents états des cellules (vide, forêt, feu, brûlé).
+     */
     public void afficherForet() {
         for (int i = 0; i < getHeight(); i++) {
             for (int j = 0; j < getLength(); j++) {

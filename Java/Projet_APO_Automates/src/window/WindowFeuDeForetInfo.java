@@ -7,14 +7,45 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
+/**
+ * Fenêtre pour la configuration initiale d'une simulation de feu de forêt.
+ * <p>
+ * Permet à l'utilisateur de spécifier divers paramètres de la simulation de feu de forêt,
+ * tels que la taille de la grille, la densité de la forêt, le nombre initial de feux,
+ * la direction et la force du vent, et la probabilité d'ignition. Un bouton "Démarrer"
+ * lance la simulation avec les paramètres fournis.
+ * </p>
+ */
 public class WindowFeuDeForetInfo extends JFrame {
-
+    /**
+     * Largeur de la fenêtre de configuration.
+     */
     private static final int WINDOW_WIDTH = 400;
+
+    /**
+     * Hauteur de la fenêtre de configuration.
+     */
     private static final int WINDOW_HEIGHT = 300;
 
+    /**
+     * Référence à la fenêtre principale de l'application.
+     */
     private final WindowMain window;
+
+    /**
+     * Le modèle de simulation de feu de forêt à configurer.
+     */
     private final FeuDeForet modele;
 
+    /**
+     * Construit et affiche une interface graphique pour configurer les paramètres d'une simulation de feu de forêt.
+     * Cette interface permet à l'utilisateur de définir la taille de la grille (hauteur et largeur), la densité de la forêt,
+     * le nombre initial de feux, la direction et la force du vent, ainsi que la probabilité d'ignition.
+     * Une fois les paramètres configurés, l'utilisateur peut démarrer la simulation via un bouton dédié.
+     *
+     * @param window La fenêtre principale de l'application qui permet l'accès à différentes fonctionnalités.
+     * @param modele L'instance de {@link FeuDeForet} qui sera configurée avec les paramètres fournis par l'utilisateur.
+     */
     public WindowFeuDeForetInfo(WindowMain window, FeuDeForet modele) {
         this.window = window;
         this.modele = modele;

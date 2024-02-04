@@ -9,13 +9,47 @@ import util.RetournerMenu;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Fenêtre de visualisation pour un Automate Cellulaire 1D.
+ * <p>
+ * Cette classe étend {@link JFrame} pour créer une interface utilisateur dédiée à l'affichage des résultats d'une simulation
+ * d'un Automate1D. Elle inclut des options pour retourner au menu principal, ajuster les paramètres de la simulation, et fermer l'application.
+ * La fenêtre affiche les générations de l'automate sous forme graphique, permettant une visualisation dynamique de l'évolution de l'automate.
+ * </p>
+ */
 public class WindowAutomate1D extends JFrame {
+    /**
+     * La hauteur de la fenêtre de visualisation.
+     */
     private int HAUTEUR = 500;
+
+    /**
+     * La largeur de la fenêtre de visualisation.
+     */
     private int LARGEUR = 500;
+
+    /**
+     * La fenêtre qui affiche les informations et les paramètres de l'automate.
+     */
     WindowAutomate1DInfo window;
+
+    /**
+     * La fenêtre principale de l'application, servant de point de navigation.
+     */
     WindowMain window0;
+
+    /**
+     * Le modèle d'Automate1D en cours de simulation.
+     */
     Automate1D modele;
 
+    /**
+     * Constructeur pour initialiser et configurer la fenêtre de visualisation de l'Automate1D.
+     *
+     * @param modele Le modèle d'Automate1D dont les résultats seront visualisés.
+     * @param window La fenêtre contenant les paramètres de l'automate, permettant à l'utilisateur de les ajuster.
+     * @param window0 La fenêtre principale de l'application, offrant la navigation entre différentes simulations et configurations.
+     */
     public WindowAutomate1D(Automate1D modele, WindowAutomate1DInfo window, WindowMain window0) {
         try {
             int rule = modele.getRule();
