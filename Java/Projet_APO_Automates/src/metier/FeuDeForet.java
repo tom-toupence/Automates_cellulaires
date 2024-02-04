@@ -28,7 +28,7 @@ public class FeuDeForet extends AutomateCellulaire2D {
         super(0, 0);
     }
 
-    private void initialiserForet(double densiteForet, int initialFeux) {
+    public void initialiserForet(double densiteForet, int initialFeux) {
         Random rand = new Random();
         for (int i = 0; i < getHeight(); i++) {
             for (int j = 0; j < getLength(); j++) {

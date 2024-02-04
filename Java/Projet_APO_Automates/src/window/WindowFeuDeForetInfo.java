@@ -103,18 +103,13 @@ public class WindowFeuDeForetInfo extends JFrame {
 
                 modele.setVentForce(Double.parseDouble(forceVentField.getText()));
                 modele.setProbaIgnition(Double.parseDouble(forceFeuField.getText()));
+                int[][] grid = new int[Integer.parseInt(largeurHauteurField.getText())][Integer.parseInt(largeurHauteurField.getText())];
+                modele.setGrid(grid);
+                modele.initialiserForet(Double.parseDouble(densiteForetField.getText()),Integer.parseInt(nbFeuInitiauxField.getText()));
 
-                // Appel de la méthode pour démarrer le modèle
-                // Vous devez implémenter cette méthode dans votre modèle
-                // Par exemple : modele.demarrerSimulation();
-
-                // Fermer la fenêtre actuelle
                 FeuDeForetResult resultsListener = new FeuDeForetResult(this, window, modele);
                 resultsListener.actionPerformed(new ActionEvent(e.getSource(), ActionEvent.ACTION_PERFORMED, null));
 
-                // Afficher la fenêtre des résultats
-                // Vous devez implémenter la classe FeuDeForetResult pour afficher les résultats
-                // Par exemple : new FeuDeForetResult(window, modele);
 
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(this, "Veuillez entrer des nombres valides.", "Erreur de saisie", JOptionPane.ERROR_MESSAGE);

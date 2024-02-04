@@ -6,7 +6,7 @@ Ce projet implémente et explore divers automates cellulaires, incluant les auto
 ### Contributeurs
 
 - LARZUL Julien
-- MONPRIVE Cédric
+- MOMPRIVE Cédric
 - TOUPENCE Tom
 
 ### Architecture du Projet

@@ -144,14 +144,7 @@ public class WindowFeuDeForet extends JFrame {
 
 
 
-    public static void main(String[] args) {
-        // Créez votre objet FeuDeForet ici avec les paramètres nécessaires
-        FeuDeForet feuDeForet = new FeuDeForet(50, 50, 0.9, 0.2, 45, 0.5, 10);
 
-        SwingUtilities.invokeLater(() -> {
-            new WindowFeuDeForet(feuDeForet,null,null);
-        });
-    }
 
 
 }

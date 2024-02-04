@@ -17,12 +17,20 @@ public class AutomateCellulaire2D extends AutomateCellulaire {
     }
 
     // Méthode pour définir l'état d'une cellule
+
     protected void setState(int x, int y, int state) {
-        grid[x][y] = state;
+        // Check if the indices are within the grid bounds before setting the state
+        if (x >= 0 && x < height && y >= 0 && y < length) {
+            grid[x][y] = state; // Corrected to use 'y' instead of '1'
+        } else {
+            // Optionally, throw an exception or log an error if indices are out of bounds
+            System.err.println("Index out of bounds: (" + x + ", " + y + ")");
+        }
     }
 
+
     // Méthode pour mettre à jour la grille entière
-    protected void setGrid(int[][] newGrid) {
+    public void setGrid(int[][] newGrid) {
         this.grid = newGrid;
     }
 
