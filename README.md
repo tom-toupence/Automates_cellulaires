@@ -1,48 +1,54 @@
 # Projet Automates
 
 ## Introduction
-Ce projet implémente et explore divers automates cellulaires, incluant les automates cellulaires 1D, un modèle de feu de forêt et les automates custom. L'objectif est d'étudier le comportement de ces modèles sous différentes règles et configurations.
 
-### Contributeurs
+Ce projet met en œuvre et explore divers automates cellulaires, y compris les automates cellulaires 1D, un modèle de simulation de feu de forêt, et des automates personnalisés. L'objectif est d'étudier le comportement de ces modèles sous différentes règles et configurations.
 
-- LARZUL Julien
-- MOMPRIVE Cédric
-- TOUPENCE Tom
+## Contributeurs
 
-### Architecture du Projet
+- Julien LARZUL
+- Cédric MOMPRIVE
+- Tom TOUPENCE
+
+## Architecture du Projet
 
 L'architecture de ce projet est organisée en plusieurs packages pour une clarté et une maintenabilité optimales :
 
-#### Métier
-Ce package contient les classes essentielles de la logique métier des automates cellulaires :
-- `Automate1D` : Gestion des automates cellulaires 1D.
+### Métier
+
+Ce package contient les classes centrales de la logique métier des automates cellulaires :
+
+- `Automate1D` : Gère les automates cellulaires 1D.
 - `AutomateCellulaire` : Classe abstraite pour les comportements communs des automates.
-- `AutomateCellulaire1D`, `AutomateCellulaire2D`, `AutomateCellulaire3D` : Implémentations pour chaque dimension.
+- `AutomateCellulaire1D`, `AutomateCellulaire2D` : Implémentations spécifiques pour chaque dimension.
 - `Cellule` : Représentation d'une cellule individuelle.
 - `FeuDeForet` : Simulation d'automate pour les feux de forêt.
 
-#### Util
-Ce package fournit des utilitaires et fonctionnalités supportant la logique métier :
+### Util (Utilitaires)
+
+Ce package fournit des utilitaires et des fonctionnalités qui soutiennent la logique métier :
+
 - `Automate1D_info` et `Automate1D_results` : Gestion des entrées et des résultats pour l'automate 1D.
-- `ColorAutomate1D` et `ColorAutomate2D` : Affichage coloré des états des automates.
+- `ColorAutomate1D` et `ColorAutomate2D` : Affichage en couleur des états des automates.
 - `Exit`, `FeuDeForetInfo`, `FeuDeForetResult`, `Parametres`, `RetournerMenu` : Outils pour la navigation et les configurations.
 
-#### Window
-Contient les classes de l'interface utilisateur :
+### Window (Interface Utilisateur)
+
+Contient les classes pour l'interface utilisateur :
+
 - `WindowAutomate1D`, `WindowAutomate1DInfo` : Fenêtres pour l'automate 1D.
 - `WindowFeuDeForet`, `WindowFeuDeForetInfo` : Fenêtres pour la simulation de feu de forêt.
-- `WindowMain` : Fenêtre principale servant de menu.
+- `WindowMain` : Fenêtre principale qui sert de menu.
 
-#### Main
-Point d'entrée initialisant l'interface utilisateur.
+### Main
 
-Chaque module est conçu pour être indépendant tout en collaborant avec les autres, permettant une évolution et une maintenance simplifiées.
+Le point d'entrée initial qui initialise l'interface utilisateur.
 
+Chaque module est conçu pour être indépendant tout en collaborant avec les autres, permettant ainsi une évolution et une maintenance simplifiées.
 
-### Fonctionnalités Principales
+## Fonctionnalités Principales
 
-- **Automate 1D** : Implémentation des automates cellulaires 1D avec règles personnalisables.
-- **Feu de Forêt** : Simulation de la propagation de feu de forêt avec de multiples paramètres réglables.
-- **Automate custom** : Conception modulaire permettant une intégration facile d'automates supplémentaires.
+- **Automate 1D** : Implémentation des automates cellulaires 1D avec des règles personnalisables.
+- **Feu de Forêt** : Simulation de la propagation d'un feu de forêt avec de nombreux paramètres ajustables.
+- **Automate Custom** : Conception modulaire permettant une intégration facile d'automates supplémentaires.
 
----
