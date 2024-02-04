@@ -8,15 +8,15 @@ public class FeuDeForet extends AutomateCellulaire2D {
     private static final int FEU = 2;
     private static final int BRULE = 3;
 
-    private double probaIgnition; // Probabilité d'ignition d'une cellule forêt due aux voisins en feu
-    private double ventDirection; // Direction du vent en degrés (0-360)
-    private double ventForce; // Force du vent
-    private int initialFeux; // Nombre initial de cellules en feu
-    private double densiteForet; // Densité de la forêt
+    private double probaFeu;
+    private double ventDirection;
+    private double ventForce;
+    private int initialFeux;
+    private double densiteForet;
 
-    public FeuDeForet(int length, int height, double densiteForet, double probaIgnition, double ventDirection, double ventForce, int initialFeux) {
+    public FeuDeForet(int length, int height, double densiteForet, double probaFeu, double ventDirection, double ventForce, int initialFeux) {
         super(length, height);
-        this.probaIgnition = probaIgnition;
+        this.probaFeu = probaFeu;
         this.ventDirection = ventDirection;
         this.ventForce = ventForce;
         this.initialFeux = initialFeux;
@@ -35,7 +35,6 @@ public class FeuDeForet extends AutomateCellulaire2D {
                 setState(i, j, rand.nextDouble() < densiteForet ? FORET : VIDE);
             }
         }
-        // Placement initial des feux
         for (int i = 0; i < initialFeux; i++) {
             int x, y;
             do {
@@ -61,7 +60,7 @@ public class FeuDeForet extends AutomateCellulaire2D {
                             int ny = j + dj;
                             if (nx >= 0 && nx < getHeight() && ny >= 0 && ny < getLength() && getState(nx, ny) == FEU) {
                                 double impactDuVent = calculerImpactDuVent(di, dj);
-                                probaFeu += probaIgnition + impactDuVent;
+                                probaFeu += this.probaFeu + impactDuVent;
                             }
                         }
                     }
@@ -69,7 +68,7 @@ public class FeuDeForet extends AutomateCellulaire2D {
                 } else if (etat == FEU) {
                     nouvelEtat[i][j] = BRULE;
                 } else {
-                    nouvelEtat[i][j] = etat; // VIDE ou BRULE reste inchangé
+                    nouvelEtat[i][j] = etat;
                 }
             }
         }
@@ -102,12 +101,12 @@ public class FeuDeForet extends AutomateCellulaire2D {
 
 
 
-    public double getProbaIgnition() {
-        return probaIgnition;
+    public double getProbaFeu() {
+        return probaFeu;
     }
 
-    public void setProbaIgnition(double probaIgnition) {
-        this.probaIgnition = probaIgnition;
+    public void setProbaFeu(double probaFeu) {
+        this.probaFeu = probaFeu;
     }
 
     public double getVentDirection() {

@@ -6,7 +6,9 @@ public class AutomateCellulaire1D extends AutomateCellulaire {
         super(length);
         setRule(rule);
     }
-
+    public String  afficherEtat(){
+     return "no etat";
+    }
 
     public int getRule() {
         return rule;
@@ -17,7 +19,6 @@ public class AutomateCellulaire1D extends AutomateCellulaire {
     }
     @Override
     public void CalculProchain() {
-        // Implémentation spécifique pour 1D
     }
 }
 

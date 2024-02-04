@@ -6,9 +6,9 @@ public class Automate1D extends AutomateCellulaire1D {
     private String initialState;
     private int iterations;
 
-    //Constructeur par défaut
+
     public Automate1D() {
-        super(0, 0); // Initialise avec des valeurs par défaut, à ajuster selon les besoins
+        super(0, 0);
         this.regle = new int[8];
     }
 
@@ -27,7 +27,7 @@ public class Automate1D extends AutomateCellulaire1D {
         for (int i = 0; i < 8; i++) {
             regle[i] = binaryString.charAt(i) == '1' ? 1 : 0;
         }
-        this.rule = ruleNumber; // Assurez-vous que la propriété 'rule' est correctement initialisée
+        this.rule = ruleNumber;
     }
 
     @Override
@@ -54,7 +54,6 @@ public class Automate1D extends AutomateCellulaire1D {
         return sb.toString();
     }
 
-    // Getteurs & Setteurs (ajustez si nécessaire pour correspondre à la nouvelle structure)
 
     public Cellule[] getCellules() {
         return cellules;

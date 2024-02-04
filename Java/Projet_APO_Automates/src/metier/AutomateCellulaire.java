@@ -22,5 +22,7 @@ public abstract class AutomateCellulaire {
 
     // Méthode abstraite pour calculer la prochaine génération
     public abstract void CalculProchain();
+
+    public abstract String afficherEtat();
 }
 
