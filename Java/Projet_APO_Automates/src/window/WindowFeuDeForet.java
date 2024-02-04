@@ -49,6 +49,11 @@ public class WindowFeuDeForet extends JFrame {
      * Hauteur par défaut de la fenêtre de visualisation.
      */
     private int hauteur;
+    /**
+     * Pourcentage de Forêt brulée.
+     */
+    private JLabel pourcentageLabel;
+
 
     /**
      * Constructeur initialisant la fenêtre de visualisation avec les composants nécessaires.
@@ -87,7 +92,9 @@ public class WindowFeuDeForet extends JFrame {
         JButton bouton_2 = new JButton("Paramètres");
         p_0.add(bouton_2);
 
+        pourcentageLabel = new JLabel("Pourcentage de forêt brûlée : ");
 
+        p_0.add(pourcentageLabel);
 
         automatePanel = new ColorAutomate2D();
         automatePanel.setCellSize(10); // Taille des cellules
@@ -108,6 +115,13 @@ public class WindowFeuDeForet extends JFrame {
     }
 
 
+    /**
+     * Démarre la simulation du feu de forêt avec une mise à jour périodique de l'état de la forêt.
+     * La simulation met à jour la grille de l'automate à intervalles réguliers, met à jour la couleur des cellules
+     * sur l'interface graphique en fonction de l'état de la forêt, calcule le pourcentage de forêt brûlée et l'affiche
+     * dans l'interface graphique.
+     * La simulation continue jusqu'à ce que l'utilisateur la mette en pause ou la ferme.
+     */
     private void startSimulation() {
         Timer timer = new Timer(100, e -> {
             feuDeForet.CalculProchain();
@@ -120,12 +134,17 @@ public class WindowFeuDeForet extends JFrame {
                     gridColors[i][j] = automatePanel.getColorForValue(value);
                 }
             }
+
             automatePanel.setGridColors(gridColors);
             automatePanel.repaint();
+
+            double pourcentageBrule = feuDeForet.calculerPourcentageForetBrulee();
+            pourcentageLabel.setText("Pourcentage de forêt brûlée : " + pourcentageBrule + "%");
         });
 
         timer.start();
     }
+
 
 
 

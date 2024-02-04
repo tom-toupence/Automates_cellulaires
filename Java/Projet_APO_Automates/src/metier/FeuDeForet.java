@@ -290,4 +290,25 @@ public class FeuDeForet extends AutomateCellulaire2D {
             System.out.println();
         }
     }
+
+    /**
+     * Calcule le pourcentage de forêt brûlée dans l'automate cellulaire.
+     *
+     * @return Le pourcentage de forêt brûlée arrondi au dixième près.
+     */
+    public double calculerPourcentageForetBrulee() {
+        int totalCells = getHeight() * getLength();
+        int foretBruleeCells = 0;
+
+        for (int i = 0; i < getHeight(); i++) {
+            for (int j = 0; j < getLength(); j++) {
+                if (getState(i, j) == BRULE) {
+                    foretBruleeCells++;
+                }
+            }
+        }
+
+        double pourcentageBrule = ((double) foretBruleeCells / totalCells) * 100;
+        return Math.round(pourcentageBrule * 10.0) / 10.0; // Arrondi au dixième près.
+    }
 }
