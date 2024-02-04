@@ -13,6 +13,9 @@ public class Main {
 
 
 /*
+
+- ANCIEN SYSTEME DANS LE TERMINAL FEU DE FORÊT-
+
         int length = 20; // Largeur de la grille
         int height = 10; // Hauteur de la grille
         double densiteForet = 0.9; // Densité de forêt (60% des cellules sont des arbres)
@@ -38,7 +41,7 @@ public class Main {
 
         /*
 
-        - ANCIEN SYSTEME DANS LE TERMINAL -
+        - ANCIEN SYSTEME DANS LE TERMINAL AUTOMATE 1D-
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Quelle règle voulez vous utiliser ? (0-256):");

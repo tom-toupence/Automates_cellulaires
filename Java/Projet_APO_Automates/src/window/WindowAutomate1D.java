@@ -2,7 +2,9 @@ package window;
 
 import metier.Automate1D;
 import util.ColorAutomate1D;
-import window.WindowMain;
+import util.Exit;
+import util.Parametres;
+import util.RetournerMenu;
 
 import javax.swing.*;
 import java.awt.*;

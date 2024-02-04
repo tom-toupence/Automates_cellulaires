@@ -1,4 +1,4 @@
-package window;
+package util;
 
 import window.WindowAutomate1D;
 
