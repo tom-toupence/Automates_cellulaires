@@ -81,10 +81,13 @@ public class WindowFeuDeForet extends JFrame {
         JButton bouton_3 = new JButton("- Retour Menu -");
         p_0.add(bouton_3);
 
+        JButton startButton = new JButton("Démarrer");
+        p_0.add(startButton);
+
         JButton bouton_2 = new JButton("Paramètres");
         p_0.add(bouton_2);
 
-        this.getContentPane().add(p_0, "South");
+
 
         automatePanel = new ColorAutomate2D();
         automatePanel.setCellSize(10); // Taille des cellules
@@ -93,9 +96,9 @@ public class WindowFeuDeForet extends JFrame {
 
         this.getContentPane().add(scrollPane, BorderLayout.CENTER);
 
-        JButton startButton = new JButton("Démarrer");
+
         startButton.addActionListener(e -> startSimulation());
-        this.getContentPane().add(startButton, BorderLayout.SOUTH);
+        this.getContentPane().add(p_0, BorderLayout.SOUTH);
         bouton_3.addActionListener(new RetournerMenuFeuDeForet(modele, window0, this));
         bouton_2.addActionListener(new ParametresFeuDeForet(modele, window, this));
         Exit.addActionListener(new Exit(this));
