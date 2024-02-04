@@ -39,7 +39,7 @@ Point d'entrée initialisant l'interface utilisateur.
 Chaque module est conçu pour être indépendant tout en collaborant avec les autres, permettant une évolution et une maintenance simplifiées.
 
 
-#### Fonctionnalités Principales
+### Fonctionnalités Principales
 
 - **Automate 1D** : Implémentation des automates cellulaires 1D avec règles personnalisables.
 - **Feu de Forêt** : Simulation de la propagation de feu de forêt avec de multiples paramètres réglables.
